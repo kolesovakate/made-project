@@ -1,16 +1,18 @@
 # Project Plan
 
-## Title
+## Impact of Literacy on Health Outcomes
 Awesome MADE project.
 
-## Main Question
-1. Does writing an example question help students write better project plans?
+## Main Questions
+1. How does literacy level impact health knowledge and preventative care behaviors?
+2. Is there a relationship between literacy and health outcomes during major health crises (e.g., COVID-19 pandemic)?
+3. Is there a relationship between literacy and health outcomes during major health crises (e.g., COVID-19 pandemic)?
 
 ## Description
-XY is an important problem, because... This project analyzes XY, using method A. The results can give insights into...
+This topic is important for several reasons, as it highlights the essential role of literacy in achieving better health outcomes and reducing healthcare disparities.
 
 ## Datasources
-
+TBA
 ### Datasource1: ExampleSource
 * Metadata URL: [ExampleSource Metadata](https://mobilithek.info/offers/-6901989592576801458)
 * Data URL: [CSV Data](https://raw.githubusercontent.com/od-ms/radverkehr-zaehlstellen/main/100035541/2019-01.csv)
