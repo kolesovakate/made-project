@@ -1,22 +1,23 @@
 # Project Plan
 
-## Impact of Literacy on Health Outcomes
+## Gun Violence and Its Correlation with Mental Health in United States
 Awesome MADE project.
 
-## Main Questions
-1. How does literacy level impact health knowledge and preventative care behaviors?
-2. Is there a relationship between literacy and health outcomes during major health crises (e.g., COVID-19 pandemic)?
-3. Does literacy level correlate with mental health outcomes?
+## Main Question
+1. What is the relationship between mental health disorders and gun violence incidents?
 
 ## Description
-This topic is important for several reasons, as it highlights the essential role of literacy in achieving better health outcomes and reducing healthcare disparities.
+This topic is important for several reasons, as it highlights the essential role of mental health in achieving a safer environment and reducing violence.
 
 ## Datasources
 TBA
-### Datasource1: ExampleSource
-* Metadata URL: [ExampleSource Metadata](https://mobilithek.info/offers/-6901989592576801458)
-* Data URL: [CSV Data](https://raw.githubusercontent.com/od-ms/radverkehr-zaehlstellen/main/100035541/2019-01.csv)
+### Datasource1: Gun Violence
+* Metadata URL: [2023 us gun violence](https://www.kaggle.com/datasets/venkat91221/2023-us-gun-violence?resource=download)
 * Data Type: CSV
+
+### Datasource2: Mental Health
+* Metadata URL: [Adult depression ](https://catalog.data.gov/dataset/adult-depression-lghc-indicator-627e3)
+* Data Type: CSV 
 
 Short description of the DataSource.
 
