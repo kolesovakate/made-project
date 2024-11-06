@@ -13,7 +13,7 @@ This topic is important for several reasons, as it highlights the essential role
 TBA
 ### Datasource1: Gun Violence
 * Metadata URL: [2023 us gun violence](https://www.kaggle.com/datasets/venkat91221/2023-us-gun-violence?resource=download)
-* https://www.kaggle.com/api/v1/datasets/download/venkat91221/2023-us-gun-violence
+* Data URL: [2023 us gun violence zip](https://www.kaggle.com/api/v1/datasets/download/venkat91221/2023-us-gun-violence)
 * Data Type: CSV
 
 ### Datasource2: Mental Health
