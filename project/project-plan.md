@@ -10,7 +10,6 @@ Awesome MADE project.
 This topic is important for several reasons, as it highlights the essential role of mental health in achieving a safer environment and reducing violence.
 
 ## Datasources
-TBA
 ### Datasource1: Gun Violence
 * Metadata URL: [2023 us gun violence](https://www.kaggle.com/datasets/venkat91221/2023-us-gun-violence?resource=download)
 * Data URL: [2023 us gun violence zip](https://www.kaggle.com/api/v1/datasets/download/venkat91221/2023-us-gun-violence)
