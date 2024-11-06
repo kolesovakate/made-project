@@ -6,7 +6,7 @@ Awesome MADE project.
 ## Main Questions
 1. How does literacy level impact health knowledge and preventative care behaviors?
 2. Is there a relationship between literacy and health outcomes during major health crises (e.g., COVID-19 pandemic)?
-3. Is there a relationship between literacy and health outcomes during major health crises (e.g., COVID-19 pandemic)?
+3. Does literacy level correlate with mental health outcomes?
 
 ## Description
 This topic is important for several reasons, as it highlights the essential role of literacy in achieving better health outcomes and reducing healthcare disparities.
