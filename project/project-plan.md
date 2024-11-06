@@ -10,6 +10,8 @@ Awesome MADE project.
 This topic is important for several reasons, as it highlights the essential role of mental health in achieving a safer environment and reducing violence.
 
 ## Datasources
+These sources give the information about gun violence in USA in 2023 and depression data from adults US citizens
+
 ### Datasource1: Gun Violence
 * Metadata URL: [2023 us gun violence](https://www.kaggle.com/datasets/venkat91221/2023-us-gun-violence?resource=download)
 * Data URL: [2023 us gun violence zip](https://www.kaggle.com/api/v1/datasets/download/venkat91221/2023-us-gun-violence)
@@ -18,8 +20,6 @@ This topic is important for several reasons, as it highlights the essential role
 ### Datasource2: Mental Health
 * Metadata URL: [Adult depression ](https://catalog.data.gov/dataset/adult-depression-lghc-indicator-627e3)
 * Data Type: CSV 
-
-Short description of the DataSource.
 
 ## Work Packages
 
