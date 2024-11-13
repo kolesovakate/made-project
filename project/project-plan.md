@@ -1,25 +1,25 @@
 # Project Plan
 
-## Sugar Sweetened Beverages and Its Correlation with Mental Health in California, United States
+## Air Quality and Its Correlation with Health in New York, United States
 Awesome MADE project.
 
 ## Main Question
-1. What is the relationship between mental health disorders and sugar?
+1. What is the relationship between health disorders and air quality?
 
 ## Description
 This topic is important for several reasons, as it highlights the essential role of mental health and food that twe consume.
 
 ## Datasources
-These sources give the information about Sugar Sweetened Beverages in CA,USA and depression data from adults US citizens
+These sources give the information about air quality in New York,USA and health data.
 
-### Datasource1: Sugar Sweetened Beverages
-* Metadata URL: [Sugar Sweetened Beverages](https://catalog.data.gov/dataset/sugar-sweetened-beverage-consumption-in-california-residents-69c65)
-* Data URL: [Sugar Sweetened Beverages](https://data.chhs.ca.gov/dataset/bb703230-1f5f-44b5-8a90-55e45e08c452/resource/4a8dde27-c4e1-4ca3-860b-447d813b2ce6/download/sugar-sweetened-beverage-consumption-in-california-residents-20122013.csv)
+### Datasource1: Air Quality
+* Metadata URL: [Air Quality](https://catalog.data.gov/dataset/air-quality)
+* Data URL: [Air Quality CSV](https://data.cityofnewyork.us/api/views/c3uy-2p5r/rows.csv?accessType=DOWNLOAD)
 * Data Type: CSV
 
-### Datasource2: Mental Health
-* Metadata URL: [Adult Depression](https://catalog.data.gov/dataset/adult-depression-lghc-indicator-627e3)
-* Data URL: [Adult Depression ](https://data.chhs.ca.gov/dataset/5a281abf-1730-43b0-b17b-ac6a35db5760/resource/724c6fd8-a645-4e52-b63f-32631a20db5d/download/adult-depression-lghc-indicator-24.csv)
+### Datasource2: Health
+* Metadata URL: [Chronic Diseases](https://catalog.data.gov/dataset/u-s-chronic-disease-indicators-cdi)
+* Data URL: [Chronic Diseases CSV ](https://data.cdc.gov/api/views/g4ie-h725/rows.csv?accessType=DOWNLOAD)
 * Data Type: CSV 
 
 ## Work Packages
