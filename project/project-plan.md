@@ -7,7 +7,7 @@ Awesome MADE project.
 1. What is the relationship between health disorders and air quality?
 
 ## Description
-This topic is important for several reasons, as it highlights the essential role of mental health and food that twe consume.
+This topic is important for several reasons, as it highlights the effects of air quality on health.
 
 ## Datasources
 These sources give the information about air quality in New York,USA and health data.
