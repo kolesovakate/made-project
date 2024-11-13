@@ -1,24 +1,25 @@
 # Project Plan
 
-## Gun Violence and Its Correlation with Mental Health in United States
+## Sugar Sweetened Beverages and Its Correlation with Mental Health in California, United States
 Awesome MADE project.
 
 ## Main Question
-1. What is the relationship between mental health disorders and gun violence incidents?
+1. What is the relationship between mental health disorders and sugar?
 
 ## Description
-This topic is important for several reasons, as it highlights the essential role of mental health in achieving a safer environment and reducing violence.
+This topic is important for several reasons, as it highlights the essential role of mental health and food that twe consume.
 
 ## Datasources
-These sources give the information about gun violence in USA in 2023 and depression data from adults US citizens
+These sources give the information about Sugar Sweetened Beverages in CA,USA and depression data from adults US citizens
 
-### Datasource1: Gun Violence
-* Metadata URL: [2023 us gun violence](https://www.kaggle.com/datasets/venkat91221/2023-us-gun-violence?resource=download)
-* Data URL: [2023 us gun violence zip](https://www.kaggle.com/api/v1/datasets/download/venkat91221/2023-us-gun-violence)
+### Datasource1: Sugar Sweetened Beverages
+* Metadata URL: [Sugar Sweetened Beverages](https://catalog.data.gov/dataset/sugar-sweetened-beverage-consumption-in-california-residents-69c65)
+* Data URL: [Sugar Sweetened Beverages](https://data.chhs.ca.gov/dataset/bb703230-1f5f-44b5-8a90-55e45e08c452/resource/4a8dde27-c4e1-4ca3-860b-447d813b2ce6/download/sugar-sweetened-beverage-consumption-in-california-residents-20122013.csv)
 * Data Type: CSV
 
 ### Datasource2: Mental Health
-* Metadata URL: [Adult depression ](https://catalog.data.gov/dataset/adult-depression-lghc-indicator-627e3)
+* Metadata URL: [Adult Depression](https://catalog.data.gov/dataset/adult-depression-lghc-indicator-627e3)
+* Data URL: [Adult Depression ](https://data.chhs.ca.gov/dataset/5a281abf-1730-43b0-b17b-ac6a35db5760/resource/724c6fd8-a645-4e52-b63f-32631a20db5d/download/adult-depression-lghc-indicator-24.csv)
 * Data Type: CSV 
 
 ## Work Packages
