@@ -1,0 +1,84 @@
+pipeline FiguresPipeline {
+
+    FiguresExtractor 
+        -> FiguresXLSXInterpreter 
+        -> FiguresSheetPicker
+        -> FiguresDataSelector
+        -> RenameHeader;
+
+    RenameHeader
+        -> GdpPerCapitaInterpreter
+        -> GdpPerCapitaLoader;
+
+    RenameHeader
+        -> BondIssuanceShareInterpreter
+        -> BondIssuanceShareLoader;
+
+
+
+
+    block FiguresExtractor oftype HttpExtractor {
+        url: 'https://thedocs.worldbank.org/en/doc/7d852628d96b9411d43e5d36d5dff941-0050062022/original/Graphs-Chapter-5-02082022.xlsx';
+    }
+
+    block FiguresXLSXInterpreter oftype XLSXInterpreter { }
+
+    block FiguresSheetPicker oftype SheetPicker {
+        sheetName: "Figure S5.1.2";
+    }
+    block FiguresDataSelector oftype CellRangeSelector {
+        select: range P2:S45;
+    }
+
+    block RenameHeader oftype CellWriter {
+        at: range A1:D1;
+        write: [
+            'Country Code',
+            'Economy',
+            'GDP per Capita',
+            'Bond Issuance Share'
+        ];
+    }
+
+    block GdpPerCapitaInterpreter oftype TableInterpreter {
+        header: true;
+        columns: [
+            'Country Code' oftype CountryCodeAlpha3,
+            'GDP per Capita' oftype PositiveRange,
+        ];
+    }
+    block BondIssuanceShareInterpreter oftype TableInterpreter {
+        header: true;
+        columns: [
+            'Country Code' oftype CountryCodeAlpha3,
+            'Bond Issuance Share' oftype ZeroOneRange,
+        ];
+    }
+
+    valuetype ZeroOneRange oftype decimal {
+        constraints: [ZeroOne];
+    }
+
+    valuetype PositiveRange oftype decimal {
+        constraints: [Positive];
+    }
+
+    constraint ZeroOne oftype RangeConstraint {
+        lowerBound: 0;
+        upperBound: 1;
+    }
+
+    constraint Positive oftype RangeConstraint {
+        lowerBound: 0;
+    }
+
+    // Loader Blocks
+    block GdpPerCapitaLoader oftype SQLiteLoader {
+        table: 'gdpPerCapita';
+        file: './country-stats.sqlite';
+    }
+    block BondIssuanceShareLoader oftype SQLiteLoader {
+        table: 'bondIssuance';
+        file: './country-stats.sqlite';
+    }
+}
