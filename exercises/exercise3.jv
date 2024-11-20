@@ -72,7 +72,6 @@ pipeline FiguresPipeline {
         lowerBound: 0;
     }
 
-    // Loader Blocks
     block GdpPerCapitaLoader oftype SQLiteLoader {
         table: 'gdpPerCapita';
         file: './country-stats.sqlite';
