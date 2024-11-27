@@ -5,15 +5,15 @@ import sqlite3
 
 # Define the URLs and output file names
 datasets = {
-    "air_quality": "https://data.cityofnewyork.us/api/views/c3uy-2p5r/rows.csv?accessType=DOWNLOAD",
+    "air_quality": "https://data.cityofnewyork.us/resource/c3uy-2p5r.csv",
     "chronic_disease": "https://data.cdc.gov/api/views/g4ie-h725/rows.csv?accessType=DOWNLOAD"
 }
 
 # Directory to save CSV and SQLite files
-save_path = './data'
+save_path = '../data'
 os.makedirs(save_path, exist_ok=True)
 
-def download_and_save_data(url, filename, filter_location=None):
+def download_and_save_data(url, filename, filter_location=None, filter_time=None):
     # Download CSV from URL
     response = requests.get(url)
     if response.status_code == 200:
@@ -32,6 +32,11 @@ def download_and_save_data(url, filename, filter_location=None):
         if filter_location and 'LocationDesc' in df.columns:
             df = df[df['LocationDesc'].str.contains(filter_location, case=False, na=False)]
             print(f"Filtered data for '{filter_location}' in '{filename}'.")
+        #if filter_time and 'YearEnd' in df.columns:
+            #df = df[df['YearEnd'] == filter_time]
+            #print(f"Filtered data for '{filter_time}' in '{filename}'.")
+        if filter_time and 'Time Period' in df.columns:
+            df = df[str(df['Time Period']).str.contains(filter_time, case=False, na=False)]
 
         # Define the SQLite database file path
         sqlite_file_path = os.path.join(save_path, filename.replace('.csv', '.db'))
@@ -49,6 +54,7 @@ for name, url in datasets.items():
     if name == "chronic_disease":
         download_and_save_data(url, csv_filename, filter_location="New York")
     else:
-        download_and_save_data(url, csv_filename)
+        download_and_save_data(url, csv_filename, filter_time='22')
 
 print("All datasets have been downloaded and saved as both CSV and SQLite files.")
+
