@@ -2,11 +2,12 @@ pipeline TemperatureDataPipeline {
 
     TemperatureDataExtractor 
         -> ZipArchiveInterpreter 
-        -> TemperaturesTableInterpreter
         -> DataFilePicker
         -> TemperatureTextFileInterpreter
         -> TemperatureCSVInterpreter
-        -> HeaderRename
+        -> HeaderRename1
+        -> HeaderRename2
+        -> TemperatureTableInterpreter
         -> TransformTemperature
         -> TransformBatteryTemperature
         -> TemperatureLoader;
@@ -17,13 +18,12 @@ pipeline TemperatureDataPipeline {
     }
 
     block ZipArchiveInterpreter oftype ArchiveInterpreter {
-    archiveType: "zip";
+        archiveType: "zip";
     }
 
     block DataFilePicker oftype FilePicker {
-    path: "./data.csv";
+        path: "./data.csv";
     }
-
 
     valuetype GreaterThanZero oftype integer {
         constraints: [Positive];
@@ -41,12 +41,6 @@ pipeline TemperatureDataPipeline {
         lowerBound: 1;
         upperBound: 12;
     }
-
-    transform ConvertCelsiusToFahrenheit  {
-        from Celsius oftype decimal;
-        to Fahrenheit  oftype decimal;
-        Fahrenheit: (Celsius * 9/5) + 32;
-    }
     
     block TemperatureTextFileInterpreter oftype TextFileInterpreter { }
 
@@ -54,40 +48,47 @@ pipeline TemperatureDataPipeline {
         delimiter: ";";
     }
 
-    // Rename header
-    block HeaderRename oftype CellWriter {
-        at: range A1:F1;
+    block HeaderRename1 oftype CellWriter {
+        at: range A1:E1;
         write: [
             'id',
             'producer',
             'model',
-            'Month',
+            'month',
             'temperature',
-            'battery_temperature'
         ];
     }
 
+    block HeaderRename2 oftype CellWriter {
+        at: cell J1;
+        write: ['battery_temperature'];
+    }
 
-    block TemperaturesTableInterpreter oftype TableInterpreter{
+    block TemperatureTableInterpreter oftype TableInterpreter {
         header: true;
         columns: [
             'id' oftype GreaterThanZero,
             'producer' oftype text,
             'model' oftype text,
-            'Month' oftype Month,
+            'month' oftype Month,
             'temperature' oftype decimal,
             'battery_temperature' oftype decimal,
         ];
     }
 
+    transform ConvertCelsiusToFahrenheit  {
+        from Celsius oftype decimal;
+        to Fahrenheit  oftype decimal;
+        Fahrenheit: (Celsius * 9/5) + 32;
+    }
 
-    block TransformTemperature oftype TableTransformer{
+    block TransformTemperature oftype TableTransformer {
         inputColumns: ['temperature'];
         outputColumn: 'temperature';
         uses: ConvertCelsiusToFahrenheit;
     }
 
-        block TransformBatteryTemperature oftype TableTransformer{
+        block TransformBatteryTemperature oftype TableTransformer {
         inputColumns: ['battery_temperature'];
         outputColumn: 'battery_temperature';
         uses: ConvertCelsiusToFahrenheit;
