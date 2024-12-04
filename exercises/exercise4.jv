@@ -1,0 +1,100 @@
+pipeline TemperatureDataPipeline {
+
+    TemperatureDataExtractor 
+        -> ZipArchiveInterpreter 
+        -> TemperaturesTableInterpreter
+        -> DataFilePicker
+        -> TemperatureTextFileInterpreter
+        -> TemperatureCSVInterpreter
+        -> HeaderRename
+        -> TransformTemperature
+        -> TransformBatteryTemperature
+        -> TemperatureLoader;
+
+
+    block TemperatureDataExtractor oftype HttpExtractor {
+        url: 'https://www.mowesta.com/data/measure/mowesta-dataset-20221107.zip';
+    }
+
+    block ZipArchiveInterpreter oftype ArchiveInterpreter {
+    archiveType: "zip";
+    }
+
+    block DataFilePicker oftype FilePicker {
+    path: "./data.csv";
+    }
+
+
+    valuetype GreaterThanZero oftype integer {
+        constraints: [Positive];
+    }
+
+    constraint Positive oftype RangeConstraint {
+        lowerBound: 0;
+    }
+
+    valuetype Month oftype integer {
+        constraints: [Months];
+    }
+
+    constraint Months oftype RangeConstraint {
+        lowerBound: 1;
+        upperBound: 12;
+    }
+
+    transform ConvertCelsiusToFahrenheit  {
+        from Celsius oftype decimal;
+        to Fahrenheit  oftype decimal;
+        Fahrenheit: (Celsius * 9/5) + 32;
+    }
+    
+    block TemperatureTextFileInterpreter oftype TextFileInterpreter { }
+
+    block TemperatureCSVInterpreter oftype CSVInterpreter{
+        delimiter: ";";
+    }
+
+    // Rename header
+    block HeaderRename oftype CellWriter {
+        at: range A1:F1;
+        write: [
+            'id',
+            'producer',
+            'model',
+            'Month',
+            'temperature',
+            'battery_temperature'
+        ];
+    }
+
+
+    block TemperaturesTableInterpreter oftype TableInterpreter{
+        header: true;
+        columns: [
+            'id' oftype GreaterThanZero,
+            'producer' oftype text,
+            'model' oftype text,
+            'Month' oftype Month,
+            'temperature' oftype decimal,
+            'battery_temperature' oftype decimal,
+        ];
+    }
+
+
+    block TransformTemperature oftype TableTransformer{
+        inputColumns: ['temperature'];
+        outputColumn: 'temperature';
+        uses: ConvertCelsiusToFahrenheit;
+    }
+
+        block TransformBatteryTemperature oftype TableTransformer{
+        inputColumns: ['battery_temperature'];
+        outputColumn: 'battery_temperature';
+        uses: ConvertCelsiusToFahrenheit;
+    }
+
+    block TemperatureLoader oftype SQLiteLoader {
+        table: 'temperatures';
+        file: 'temperatures.sqlite';
+    }
+}
